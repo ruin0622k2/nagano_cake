@@ -1,2 +1,42 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<div class="container">
+  <div class="row mt-1 mb-5">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+    <h4>商品詳細</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-8">
+      <table>
+        <tr>
+        <th>商品名</th>
+        <th><%= @item.name %></th>
+        </tr>
+        <th>商品説明</th>
+        <th><%= @item.introduction %></th>
+        </tr>
+        <tr>
+        <th>ジャンル</th>
+        <th><%= @item.genre.name %></th>
+        </tr>
+        <tr>
+        <th>税込価格<br>(税込価格)</th>
+        <th><%= @item.price %>円</th>
+        </tr>
+        <tr>
+        <th>販売ステータス</th>
+        <th><%= @item.is_active %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-lg-4"></div>
+    <div class="text-center col-sm-4 col-md-4 col-lg-4 mx-auto">
+      <%= link_to '編集する', edit_admin_item_path(@item.id), class: "btn btn-lg btn-success" %>
+    </div>
+    <div class="col-md-4 col-lg-4"></div>
+  </div>
+</div>

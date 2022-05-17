@@ -5,6 +5,7 @@ class Admin::GenresController < ApplicationController
   end
 
   def edit
+    @genre = Genre.find(params[:id])
   end
 
   def create
@@ -17,6 +18,12 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
+    @genre = Genre.find(params[:id])
+    if @genre.update(genre_params)
+      redirect_to admin_genres_path, notice: 'You have updated user successfully.'
+    else
+      render :edit, notice: 'error! Please Try again.'
+    end
   end
 
 
