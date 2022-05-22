@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= render 'layouts/_genre_search', { genre: @genre } %>
+    </div>
+  </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+          <h3><%= @item.name %></h3>
+          <%= @item.introduction %>
+          <%= @item.price %>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+          <%= form_with model: @item.cart_item do |f| %>
+            <%= f.select :amount, ['1', '2', '3'], {include_blank: '選択ボックス'} %>
+            <%= f.submit 'カートに入れる',class:"btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

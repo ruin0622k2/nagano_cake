@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: 'homes#top'
-  get "/home/about" => "homes#about"
+  root to: 'public/homes#top'
+  get "/about" => "public/homes#about"
 
   devise_for :admins, skip: [:registrations, :passwords],controllers: {
     sessions: "admin/sessions"
@@ -12,8 +12,14 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   # 会員側のルーティング設定
+    resources :homes
     resources :items
-    resources :customers
+    resources :customers do
+      collection do
+        get :unsubscribe
+        patch :withdraw
+      end
+    end
     resources :cart_items
     resources :orders
     resources :addresses

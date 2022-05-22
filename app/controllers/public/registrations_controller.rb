@@ -59,4 +59,22 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def new
+    @customer = Customer.new
+  end
+
+  def create
+    @customer = Customer.new(customer_params)
+    if @customer.save
+      redirect_to customer_path(@customer.id), notice: 'Welcome to Nagano CAKE!!'
+    else
+      render :new, notice: 'error! Please Try again.'
+    end
+  end
+
+  private
+
+
+
 end

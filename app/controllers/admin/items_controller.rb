@@ -18,6 +18,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @genre = Genre.all
     @item = Item.find(params[:id])
   end
 

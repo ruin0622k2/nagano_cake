@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <div style="border: 1px solid #333333; text-align: center;">
+        ジャンル検索
+      </div>
+      <div style="padding: 10px; border: 1px solid #333333;">
+        <table>
+          <% @genres.each do |genre| %>
+          <tr>
+            <td>
+              <%= genre.name %>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+          <h3>新着商品</h3>(全件)
+          <% @items.each do |item| %>
+          <div>
+            <tr>
+              <td></td>
+              <td><%= item.name %></td><br>
+              <td><%= item.price %></td>
+            </tr>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

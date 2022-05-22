@@ -2,19 +2,19 @@
   <div class="row">
     <div class="col-1"></div>
     <div class="col-11 mx-4">
-    <h4>新規会員登録</h4>
+    <h4>会員情報編集</h4>
     </div>
   </div>
     <%= form_with model: @customer do |f| %>
     <div class="field row my-2">
       <div class="col-3">
-        名前
+        氏名
       </div>
       <div class="col-3">
-        (性)<%= f.text_field :last_name,class: "form-control" %>
+        <%= f.text_field :last_name,class: "form-control" %>
       </div>
       <div class="col-3">
-        (名)<%=f.text_field :first_name,class: "form-control" %>
+        <%=f.text_field :first_name,class: "form-control" %>
       </div>
     </div>
     <div class="field row my-2">
@@ -22,18 +22,10 @@
         フリガナ
       </div>
       <div class="col-3">
-        (セイ)<%=f.text_field :last_name_kana,class: "form-control" %>
+        <%=f.text_field :last_name_kana,class: "form-control" %>
       </div>
       <div class="col-3">
-        (メイ)<%=f.text_field :first_name_kana,class: "form-control" %>
-      </div>
-    </div>
-    <div class="field row my-2">
-      <div class="col-3">
-        メールアドレス
-      </div>
-      <div class="col-3">
-        <%=f.text_field :email,class: "form-control" %>
+        <%=f.text_field :first_name_kana,class: "form-control" %>
       </div>
     </div>
     <div class="field row my-2">
@@ -54,7 +46,7 @@
     </div>
     <div class="field row my-2">
       <div class="col-3">
-        電話番号（ハイフンなし）
+        電話番号
       </div>
       <div class="col-3">
         <%=f.text_field :telephone_number,class: "form-control" %>
@@ -62,7 +54,7 @@
     </div>
     <div class="field row my-2">
       <div class="col-3">
-        パスワード（6文字以上）
+        メールアドレス
       </div>
       <div class="col-3">
         <%=f.text_field :email,class: "form-control" %>
@@ -70,21 +62,13 @@
     </div>
     <div class="field row my-2">
       <div class="col-3"></div>
-      <div class="col-3 mx-auto">
-        <%=f.submit '新規登録',class: "btn btn-success" %>
+      <div class="col-5">
+        <%=f.submit '変更内容を保存',class: "btn btn-success" %>
       </div>
-      <div class="col-6"></div>
+      <div class="col-4">
+        <%= redirect_to "退会する",'/customers/unsubscribe',class: "btn btn-danger" %>
+      </div>
       <% end %>
     </div>
   </div>
-  <row>
-    <div class="col-1"></div>
-    <div class="col-11">
-    <h5>既に登録済みの方</h5>
-    </div>
-    <div class="col-2"></div>
-    <div class="col-10">
-      <%= link_to "こちら", new_customer_session_path %>　からログインしてください。
-    </div>
-  </row>
 </div>
